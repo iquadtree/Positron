@@ -226,7 +226,16 @@ HEADERS += src/qt/bitcoingui.h \
     src/qt/rpcconsole.h \
     src/version.h \
     src/netbase.h \
-    src/clientversion.h
+    src/clientversion.h \
+    src/qt/darksendconfig.h \
+    src/masternode.h \
+    src/darksend.h \
+    src/instantx.h \
+    src/activemasternode.h \
+    src/spork.h \
+    src/qt/addeditadrenalinenode.h \
+    src/qt/adrenalinenodeconfigdialog.h \
+    src/qt/masternodemanager.h
 
 SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
     src/qt/transactiontablemodel.cpp \
@@ -305,7 +314,18 @@ SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
     src/zerocoin/Params.cpp \
     src/zerocoin/SerialNumberSignatureOfKnowledge.cpp \
     src/zerocoin/SpendMetaData.cpp \
-    src/zerocoin/ZeroTest.cpp
+    src/zerocoin/ZeroTest.cpp \
+    src/qt/darksendconfig.cpp \
+    src/masternode.cpp \
+    src/darksend.cpp \
+    src/rpcdarksend.cpp \
+    src/instantx.cpp \
+    src/activemasternode.cpp \
+    src/spork.cpp \
+    src/masternodeconfig.cpp \
+    src/qt/addeditadrenalinenode.cpp \
+    src/qt/adrenalinenodeconfigdialog.cpp \
+    src/qt/masternodemanager.cpp
 
 RESOURCES += \
     src/qt/bitcoin.qrc
@@ -322,7 +342,11 @@ FORMS += \
     src/qt/forms/sendcoinsentry.ui \
     src/qt/forms/askpassphrasedialog.ui \
     src/qt/forms/rpcconsole.ui \
-    src/qt/forms/optionsdialog.ui
+    src/qt/forms/optionsdialog.ui \
+    src/qt/forms/darksendconfig.ui \
+    src/qt/forms/addeditadrenalinenode.ui \
+    src/qt/forms/adrenalinenodeconfigdialog.ui \
+    src/qt/forms/masternodemanager.ui
 
 contains(USE_QRCODE, 1) {
 HEADERS += src/qt/qrcodedialog.h
