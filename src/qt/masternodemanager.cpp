@@ -22,7 +22,6 @@
 #include <QApplication>
 #include <QClipboard>
 #include <QMessageBox>
-#include <QScroller>
 
 MasternodeManager::MasternodeManager(QWidget *parent) :
     QWidget(parent),
@@ -38,8 +37,8 @@ MasternodeManager::MasternodeManager(QWidget *parent) :
     ui->stopButton->setEnabled(false);
     ui->copyAddressButton->setEnabled(false);
 
-    ui->tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
-    ui->tableWidget_2->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+    ui->tableWidget->horizontalHeader()->setResizeMode(QHeaderView::ResizeToContents);
+    ui->tableWidget_2->horizontalHeader()->setResizeMode(QHeaderView::ResizeToContents);
 
     subscribeToCoreSignals();
 
