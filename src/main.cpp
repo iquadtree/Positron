@@ -571,7 +571,7 @@ int64_t CTransaction::GetMinFee(unsigned int nBlockSize, enum GetMinFee_mode mod
 bool AcceptableInputs(CTxMemPool& pool, const CTransaction &txo, bool fLimitFree,
                         bool* pfMissingInputs)
 {
-    
+
     if (pfMissingInputs)
         *pfMissingInputs = false;
 
@@ -631,7 +631,7 @@ bool AcceptableInputs(CTxMemPool& pool, const CTransaction &txo, bool fLimitFree
             return false;
         }
 
-        
+
         int64_t nFees = tx.GetValueIn(mapInputs)-tx.GetValueOut();
         unsigned int nSize = ::GetSerializeSize(tx, SER_NETWORK, PROTOCOL_VERSION);
 
@@ -1212,7 +1212,7 @@ uint256 WantedByOrphan(const CBlock* pblockOrphan)
 int64_t GetProofOfWorkReward(int64_t nFees)
 {
     int64_t nSubsidy = 1 * COIN;
- 
+
     if(pindexBest->nHeight < 101)
     {
         nSubsidy = 0 * COIN;
@@ -1240,7 +1240,7 @@ int64_t GetProofOfWorkReward(int64_t nFees)
         else if(pindexBest->nHeight < 3400)
     {
         nSubsidy = 100 * COIN;
-    }    
+    }
     if (fDebug && GetBoolArg("-printcreation"))
         printf("GetProofOfWorkReward() : create=%s nSubsidy=%"PRId64"\n", FormatMoney(nSubsidy).c_str(), nSubsidy);
 
@@ -1250,9 +1250,9 @@ int64_t GetProofOfWorkReward(int64_t nFees)
 // miner's coin stake reward based on coin age spent (coin-days)
 int64_t GetProofOfStakeReward(int64_t nCoinAge, int64_t nFees)
 {
-    
+
     // proof of stake rewards. POS begins at block 2700
-    
+
     int64_t nSubsidy = nCoinAge * COIN_YEAR_REWARD * 33 / (365 * 33 + 8);  //default 9% yr
 
         if(pindexBest->nHeight < 4000)
@@ -1278,16 +1278,16 @@ int64_t GetProofOfStakeReward(int64_t nCoinAge, int64_t nFees)
         else if(pindexBest->nHeight < 20000)
     {
         nSubsidy = 20 * COIN;
-    }    
+    }
         else if(pindexBest->nHeight < 21001)
     {
         nSubsidy = 100 * COIN;
-    }    
+    }
         else if(pindexBest->nHeight > 21000)
     {
         nSubsidy = nCoinAge * COIN_YEAR_REWARD * 33 / (365 * 33 + 8);  //default 9% yr
-    }    
-    
+    }
+
 
     if (fDebug && GetBoolArg("-printcreation"))
         printf("GetProofOfStakeReward(): create=%s nCoinAge=%"PRId64"\n", FormatMoney(nSubsidy).c_str(), nCoinAge);
@@ -2353,7 +2353,7 @@ bool CBlock::CheckBlock(bool fCheckPOW, bool fCheckMerkleRoot, bool fCheckSig) c
 
 // ----------- instantX transaction scanning -----------
 
-   
+
         BOOST_FOREACH(const CTransaction& tx, vtx){
             if (!tx.IsCoinBase()){
                 //only reject blocks when it's based on complete consensus
@@ -2367,7 +2367,7 @@ bool CBlock::CheckBlock(bool fCheckPOW, bool fCheckMerkleRoot, bool fCheckSig) c
                 }
             }
         }
-    
+
 
 
     // ----------- masternode payments -----------
@@ -2375,7 +2375,7 @@ bool CBlock::CheckBlock(bool fCheckPOW, bool fCheckMerkleRoot, bool fCheckSig) c
     bool MasternodePayments = false;
 
     if(nTime > START_MASTERNODE_PAYMENTS) MasternodePayments = true;
-   
+
     if(MasternodePayments)
     {
         LOCK2(cs_main, mempool.cs);
@@ -2490,7 +2490,7 @@ bool CBlock::AcceptBlock()
 
     if (IsProofOfWork() && nHeight > LAST_POW_BLOCK)
         return DoS(100, error("AcceptBlock() : reject proof-of-work at height %d", nHeight));
-        
+
     if (IsProofOfStake() && nHeight < MODIFIER_INTERVAL_SWITCH)
         return DoS(100, error("AcceptBlock() : reject proof-of-stake at height %d", nHeight));
 
