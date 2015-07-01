@@ -18,11 +18,11 @@
 #include <QTimer>
 #include <QDebug>
 #include <QScrollArea>
-#include <QScroller>
 #include <QDateTime>
 #include <QApplication>
 #include <QClipboard>
 #include <QMessageBox>
+#include <QScroller>
 
 MasternodeManager::MasternodeManager(QWidget *parent) :
     QWidget(parent),
